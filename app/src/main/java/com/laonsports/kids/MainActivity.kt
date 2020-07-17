@@ -1,25 +1,19 @@
 package com.laonsports.kids
 
 import android.os.Bundle
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import com.laonsports.kids.network.api.ChildSchoolService
-import com.laonsports.kids.network.api.searchList
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
+
+    private val centerListViewModel by viewModels<CenterListViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val service: ChildSchoolService = ChildSchoolService.create()
-        searchList(service,
-            1,
-            30,
-            11,
-            11710,
-            { data -> {} }, { error ->
-                {}
-            }
-        )
+        centerListViewModel.getCenterList()
     }
 }
