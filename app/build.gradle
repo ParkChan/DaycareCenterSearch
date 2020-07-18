@@ -76,6 +76,8 @@ dependencies {
     implementation AndroidDxDependencies.ROOM_KTX
     implementation AndroidDxDependencies.ROOM_GUAVA
 
+    implementation AndroidDxDependencies.PAGING
+
     implementation Dependencies.LOGGER
 
     implementation Dependencies.GLIDE
@@ -89,12 +91,11 @@ dependencies {
     kapt Dependencies.HILT_COMPILER
 
     implementation NetworkDependencies.RETROFIT
-    implementation NetworkDependencies.LOGGING
     implementation NetworkDependencies.MOSHI_KOTLIN
     implementation NetworkDependencies.MOSHI
     implementation NetworkDependencies.CONVERTER_MOSHI
     kapt NetworkDependencies.MOSHI_KOTLIN_CODEGEN
-
+    implementation NetworkDependencies.LOGGING
 
 
 }

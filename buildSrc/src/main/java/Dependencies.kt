@@ -35,6 +35,7 @@ object AndroidDxDependencies {
     private const val LIFECYCLE_VERSION = "2.2.0"
     private const val NAVIGATION_VERSION = "2.3.0"
     private const val ROOM_VERSION = "2.2.5"
+    private const val PAGING_VERSION = "3.0.0-alpha01"
 
     const val APPCOMPAT = "androidx.appcompat:appcompat:1.1.0"
 
@@ -63,6 +64,9 @@ object AndroidDxDependencies {
     const val ROOM_COMPILER = "androidx.room:room-compiler:$ROOM_VERSION"
     const val ROOM_KTX = "androidx.room:room-ktx:$ROOM_VERSION"
     const val ROOM_GUAVA = "androidx.room:room-guava:$ROOM_VERSION"
+
+    //Paging 3.0 core dependencies Injection
+    const val PAGING = "androidx.paging:paging-runtime:$PAGING_VERSION"
 
 }
 

@@ -1,7 +1,7 @@
 package com.laonsports.kids.di
 
 import com.laonsports.kids.BuildConfig
-import com.laonsports.kids.network.api.ChildSchoolApi
+import com.laonsports.kids.network.ChildSchoolApi
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
