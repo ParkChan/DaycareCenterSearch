@@ -97,5 +97,4 @@ dependencies {
     kapt NetworkDependencies.MOSHI_KOTLIN_CODEGEN
     implementation NetworkDependencies.LOGGING
 
-
 }

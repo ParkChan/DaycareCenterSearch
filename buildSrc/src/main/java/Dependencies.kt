@@ -10,7 +10,7 @@ object RootConfig {
 
 object AndroidConfig {
     const val COMPILE_AND_TARGET_SDK = 29
-    const val APPLICATION_ID = "com.laonsports"
+    const val APPLICATION_ID = "com.kids"
     const val MIN_SDK = 21
     const val VERSION_CODE = 1
     const val VERSION_NAME = "1.0.0"

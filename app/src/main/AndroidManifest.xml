@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.laonsports.kids">
+    package="com.kids">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -13,9 +13,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:name=".MyApplication"
-        android:usesCleartextTraffic="true"
         >
-        <activity android:name=".MainActivity">
+        <activity android:name="com.kids.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.VIEW" />

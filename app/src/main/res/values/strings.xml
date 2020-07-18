@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">DaycareCenterSearch</string>
+    <string name="app_name">유치원 통합검색</string>
     <string name="title_daycare_center">리스트</string>
     <string name="title_bookmark">북마크</string>
 </resources>

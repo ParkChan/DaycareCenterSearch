@@ -7,7 +7,7 @@
 
         <variable
             name="vm"
-            type="com.laonsports.kids.ui.main.viewmodel.DaycareCenterViewModel" />
+            type="com.kids.ui.main.viewmodel.DaycareCenterViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
