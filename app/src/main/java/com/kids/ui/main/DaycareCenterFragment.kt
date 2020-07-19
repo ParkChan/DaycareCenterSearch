@@ -57,7 +57,6 @@ class DaycareCenterFragment : BaseFragment<FragmentDaycareCenterBinding>(
         daycareCenterViewModel.selectedItem.observe(
             viewLifecycleOwner,
             Observer { daycareCenterModel ->
-                Logger.d("selected button ${daycareCenterModel.telno}")
                 context?.let {
                     TedRx2Permission.with(it)
                         .setRationaleTitle(R.string.dialog_title_common_permission)
@@ -84,12 +83,15 @@ class DaycareCenterFragment : BaseFragment<FragmentDaycareCenterBinding>(
                                         context,
                                         "Permission Denied\n" + tedPermissionResult.deniedPermissions.toString(),
                                         Toast.LENGTH_SHORT
-                                    )
-                                        .show()
+                                    ).show()
                                 }
                             }
                             throwable?.run {
-                                Logger.d(throwable.message)
+                                Toast.makeText(
+                                    context,
+                                    throwable.message,
+                                    Toast.LENGTH_SHORT
+                                ).show()
                             }
                         }
                 }
