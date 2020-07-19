@@ -97,6 +97,9 @@ object Dependencies {
     const val HILT_LIFECYCLE_VM = "androidx.hilt:hilt-lifecycle-viewmodel:$HILT_JETPACK_VER"
     const val HILT_COMPILER = "androidx.hilt:hilt-compiler:$HILT_JETPACK_VER"
 
+    //TedPermmision
+    const val TED_PERMISION = "gun0912.ted:tedpermission-rx2:2.2.3"
+
 }
 
 object NetworkDependencies {

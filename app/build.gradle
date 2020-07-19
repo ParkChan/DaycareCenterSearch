@@ -90,6 +90,8 @@ dependencies {
     kapt Dependencies.HILT_ANDROID_COMPILER
     kapt Dependencies.HILT_COMPILER
 
+    implementation Dependencies.TED_PERMISION
+
     implementation NetworkDependencies.RETROFIT
     implementation NetworkDependencies.MOSHI_KOTLIN
     implementation NetworkDependencies.MOSHI

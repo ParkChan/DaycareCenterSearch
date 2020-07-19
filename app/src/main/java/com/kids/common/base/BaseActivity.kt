@@ -22,5 +22,6 @@ abstract class BaseActivity<VDB : ViewDataBinding>(
             lifecycleOwner = this@BaseActivity
         }
         bindViewModel()
+        setupObserve()
     }
 }

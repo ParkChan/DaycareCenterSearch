@@ -1,5 +1,8 @@
 package com.kids.ui.main
 
+import android.Manifest
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.util.ArrayMap
 import android.view.View
@@ -7,6 +10,7 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -23,6 +27,7 @@ import com.kids.databinding.FragmentDaycareCenterBinding
 import com.kids.ui.main.model.DaycareCenterModel
 import com.kids.ui.main.viewmodel.DaycareCenterViewModel
 import com.orhanobut.logger.Logger
+import com.tedpark.tedpermission.rx2.TedRx2Permission
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.collect
@@ -46,6 +51,49 @@ class DaycareCenterFragment : BaseFragment<FragmentDaycareCenterBinding>(
 
     override fun bindViewModel() {
         binding.vm = daycareCenterViewModel
+    }
+
+    override fun setupObserve() {
+        daycareCenterViewModel.selectedItem.observe(
+            viewLifecycleOwner,
+            Observer { daycareCenterModel ->
+                Logger.d("selected button ${daycareCenterModel.telno}")
+                context?.let {
+                    TedRx2Permission.with(it)
+                        .setRationaleTitle(R.string.dialog_title_common_permission)
+                        .setRationaleMessage(R.string.dialog_message_request_call_permission)
+                        .setPermissions(Manifest.permission.CALL_PHONE)
+                        .request()
+                        .subscribe { tedPermissionResult, throwable ->
+                            tedPermissionResult?.run {
+                                if (tedPermissionResult.isGranted) {
+                                    Toast.makeText(
+                                        context,
+                                        "Permission Granted",
+                                        Toast.LENGTH_SHORT
+                                    ).show()
+                                    val intent =
+                                        Intent(
+                                            Intent.ACTION_CALL, Uri.parse(
+                                                "tel:" + daycareCenterModel.telno
+                                            )
+                                        )
+                                    startActivity(intent)
+                                } else {
+                                    Toast.makeText(
+                                        context,
+                                        "Permission Denied\n" + tedPermissionResult.deniedPermissions.toString(),
+                                        Toast.LENGTH_SHORT
+                                    )
+                                        .show()
+                                }
+                            }
+                            throwable?.run {
+                                Logger.d(throwable.message)
+                            }
+                        }
+                }
+            })
     }
 
     private fun initAdapter() {

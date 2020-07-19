@@ -18,6 +18,7 @@ abstract class BaseFragment<VDB : ViewDataBinding>(
     protected lateinit var binding: VDB
 
     open fun bindViewModel() = Unit
+    open fun setupObserve() = Unit
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -38,5 +39,6 @@ abstract class BaseFragment<VDB : ViewDataBinding>(
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         bindViewModel()
+        setupObserve()
     }
 }
