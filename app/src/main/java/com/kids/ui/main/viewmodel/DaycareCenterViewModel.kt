@@ -18,4 +18,5 @@ class DaycareCenterViewModel @ViewModelInject constructor(
         sggCode: String
     ): Flow<PagingData<DaycareCenterModel>> =
         centerListRepository.getCenterList(sidoCode, sggCode).flow.cachedIn(viewModelScope)
+
 }

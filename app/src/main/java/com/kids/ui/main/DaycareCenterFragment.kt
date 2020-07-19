@@ -3,22 +3,31 @@ package com.kids.ui.main
 import android.os.Bundle
 import android.util.ArrayMap
 import android.view.View
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.paging.LoadState
+import androidx.recyclerview.widget.DividerItemDecoration
 import com.kids.BR
 import com.kids.R
 import com.kids.common.base.BaseFragment
 import com.kids.common.base.BaseListAdapter
 import com.kids.common.base.BaseViewModel
 import com.kids.common.data.ViewHolderIdData
+import com.kids.constants.areaData
+import com.kids.constants.getSggCode
+import com.kids.constants.getSidoCode
 import com.kids.databinding.FragmentDaycareCenterBinding
 import com.kids.ui.main.model.DaycareCenterModel
 import com.kids.ui.main.viewmodel.DaycareCenterViewModel
+import com.orhanobut.logger.Logger
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
+import kotlin.collections.set
 
 @AndroidEntryPoint
 class DaycareCenterFragment : BaseFragment<FragmentDaycareCenterBinding>(
@@ -27,16 +36,12 @@ class DaycareCenterFragment : BaseFragment<FragmentDaycareCenterBinding>(
 
     private val daycareCenterViewModel by viewModels<DaycareCenterViewModel>()
     lateinit var adapter: BaseListAdapter<DaycareCenterModel>
+    private var searchJob: Job? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         initAdapter()
-        lifecycleScope.launch {
-            daycareCenterViewModel.getCenterListStream("11", "11740").collect {
-                adapter.submitData(it)
-            }
-        }
+        initListener()
     }
 
     override fun bindViewModel() {
@@ -67,9 +72,9 @@ class DaycareCenterFragment : BaseFragment<FragmentDaycareCenterBinding>(
             if (loadState.refresh is LoadState.Loading ||
                 loadState.append is LoadState.Loading
             ) {
-//                showProgressBar(true)
+                showProgressBar(true)
             } else {
-//                showProgressBar(false)
+                showProgressBar(false)
                 val errorState = when {
                     loadState.append is LoadState.Error -> loadState.append as LoadState.Error
                     loadState.prepend is LoadState.Error -> loadState.prepend as LoadState.Error
@@ -82,5 +87,89 @@ class DaycareCenterFragment : BaseFragment<FragmentDaycareCenterBinding>(
             }
         }
         binding.rvProduct.adapter = adapter
+
+        //add dividers
+        val decoration = DividerItemDecoration(context, DividerItemDecoration.VERTICAL)
+        binding.rvProduct.addItemDecoration(decoration)
+
+        binding.spinnerSido.adapter =
+            context?.let {
+                ArrayAdapter(
+                    it, android.R.layout.simple_spinner_dropdown_item, areaData.map { areaData ->
+                        areaData.sidoName
+                    }.distinct()
+                )
+            }
+    }
+
+    private fun initListener() {
+
+        binding.spinnerSido.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onNothingSelected(parent: AdapterView<*>?) {}
+
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                val selectedSido = binding.spinnerSido.getItemAtPosition(position).toString()
+                setSpinnerSggAdapter(selectedSido)
+            }
+        }
+        binding.spinnerSgg.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onNothingSelected(parent: AdapterView<*>?) {}
+
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                val sidoSelectedStr = binding.spinnerSido.selectedItem.toString()
+                val sggSelectedStr = binding.spinnerSgg.selectedItem.toString()
+
+                val sidoCode = getSidoCode(sidoSelectedStr)
+                val sggCode = getSggCode(sidoSelectedStr, sggSelectedStr)
+
+                Logger.d("test >>> 시도  $sidoSelectedStr 시군구 $sggSelectedStr")
+                Logger.d("test >>> 시도 코드 $sidoCode 시군구 코드 $sggCode")
+
+                search(sidoCode, sggCode)
+            }
+        }
+    }
+
+    private fun setSpinnerSggAdapter(sido: String) {
+        binding.spinnerSgg.adapter =
+            context?.let {
+                ArrayAdapter(
+                    it,
+                    android.R.layout.simple_spinner_dropdown_item,
+                    areaData.filter { areaData ->
+                        areaData.sidoName == sido
+                    }.map { areaData ->
+                        areaData.sggName
+                    }
+                )
+            }
+    }
+
+    private fun search(sidoCode: String, sggCode: String) {
+        searchJob?.cancel()
+        searchJob = lifecycleScope.launch {
+            daycareCenterViewModel.getCenterListStream(sidoCode, sggCode).collect {
+                adapter.submitData(it)
+            }
+        }
+    }
+
+    private fun showProgressBar(display: Boolean) {
+        binding.progressLoading.run {
+            if (!display)
+                this.visibility = View.GONE
+            else
+                this.visibility = View.VISIBLE
+        }
     }
 }

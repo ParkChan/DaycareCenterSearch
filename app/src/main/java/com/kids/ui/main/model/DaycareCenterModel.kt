@@ -1,11 +1,14 @@
 package com.kids.ui.main.model
 
+/**
+ * @param kindername : 유치원 이름
+ * @param addr : 주소
+ * @param opertime : 운영시간
+ */
 data class DaycareCenterModel(
-
-    val key: String = "",    //유치원 이름
-    val kindername: String = "",    //유치원 이름
-    val addr: String = "",          //주소
+    val key: String = "",
+    val kindername: String = "",
+    val addr: String = "",
     val telno: String = "",
-    val opertime: String = ""       //운영시간
-
+    val opertime: String = ""
 )

@@ -2,7 +2,8 @@
 
 <resources>
 
-    <dimen name="item_daycare_center_text_size">24sp</dimen>
+    <dimen name="item_daycare_center_text_size">20sp</dimen>
+    <dimen name="item_daycare_center_sub_text_size">15sp</dimen>
     <dimen name="item_daycare_center_padding_vertical">12dp</dimen>
     <dimen name="item_daycare_center_padding_horizontal">12dp</dimen>
 

@@ -27,17 +27,57 @@
         android:background="@color/color_000000">
 
         <TextView
+            android:id="@+id/tv_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/item_daycare_center_padding_horizontal"
+            android:paddingVertical="@dimen/item_daycare_center_padding_vertical"
             android:text="@{daycareCenterModel.kindername}"
             android:textColor="@color/color_ffffff"
             android:textSize="@dimen/item_daycare_center_text_size"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:paddingVertical="@dimen/item_daycare_center_padding_vertical"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_addr"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:paddingHorizontal="@dimen/item_daycare_center_padding_horizontal"
-            />
+            android:paddingVertical="@dimen/item_daycare_center_padding_vertical"
+            android:text="@{daycareCenterModel.addr}"
+            android:textColor="@color/color_ffffff"
+            android:textSize="@dimen/item_daycare_center_sub_text_size"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_name" />
+
+        <TextView
+            android:id="@+id/tv_opertime"
+            operTime="@{daycareCenterModel.opertime}"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/item_daycare_center_padding_horizontal"
+            android:paddingVertical="@dimen/item_daycare_center_padding_vertical"
+            android:textColor="@color/color_ffffff"
+            android:textSize="@dimen/item_daycare_center_sub_text_size"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_addr" />
+
+        <TextView
+            android:id="@+id/tv_phone_number"
+            phoneNumber="@{daycareCenterModel.telno}"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/item_daycare_center_padding_horizontal"
+            android:paddingVertical="@dimen/item_daycare_center_padding_vertical"
+            android:textColor="@color/color_ffffff"
+            android:textSize="@dimen/item_daycare_center_sub_text_size"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_opertime" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

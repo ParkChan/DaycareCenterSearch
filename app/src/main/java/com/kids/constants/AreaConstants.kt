@@ -1,8 +1,18 @@
 package com.kids.constants
 
 import com.kids.common.data.AreaData
+import okhttp3.internal.immutableListOf
 
-val subArea = listOf(
+
+fun getSidoCode(sido: String): String =
+    areaData.filter { it.sidoName == sido }
+        .map { it.sidoCode }.distinct()[0]
+
+fun getSggCode(sido: String, sgg: String): String =
+    areaData.filter { it.sidoName == sido && it.sggName == sgg }
+        .map { it.sggCode }.distinct()[0]
+
+val areaData = immutableListOf(
     AreaData("서울특별시", "11", "중구", "11140"),
     AreaData("서울특별시", "11", "영등포구", "11560"),
     AreaData("서울특별시", "11", "중랑구", "11260"),
@@ -117,12 +127,7 @@ val subArea = listOf(
     AreaData("울산광역시", "31", "남구", "31140"),
     AreaData("울산광역시", "31", "울주군", "31710"),
     AreaData("울산광역시", "31", "북구", "31200"),
-    AreaData(
-        "세종특별자치시",
-        "36",
-        "세종특별자치시",
-        "36110"
-    ),
+    AreaData("세종특별자치시", "36", "세종특별자치시", "36110"),
     AreaData("충청북도", "43", "제천시", "43150"),
     AreaData("충청북도", "43", "괴산군", "43760"),
     AreaData("충청북도", "43", "보은군", "43720"),
@@ -230,22 +235,12 @@ val subArea = listOf(
     AreaData("경상남도", "48", "하동군", "48850"),
     AreaData("경상남도", "48", "거창군", "48880"),
     AreaData("경상남도", "48", "창원시", "48120"),
-    AreaData(
-        "경상남도",
-        "48",
-        "창원시 마산회원구",
-        "48127"
-    ),
+    AreaData("경상남도", "48", "창원시 마산회원구", "48127"),
     AreaData("경상남도", "48", "진주시", "48170"),
     AreaData("경상남도", "48", "함안군", "48730"),
     AreaData("경상남도", "48", "남해군", "48840"),
     AreaData("경상남도", "48", "창원시 성산구", "48123"),
-    AreaData(
-        "경상남도",
-        "48",
-        "창원시 마산합포구",
-        "48125"
-    ),
+    AreaData("경상남도", "48", "창원시 마산합포구", "48125"),
     AreaData("경상남도", "48", "창원시 진해구", "48129"),
     AreaData("경상남도", "48", "김해시", "48250"),
     AreaData("부산광역시", "26", "부산진구", "26230"),

@@ -30,7 +30,7 @@ abstract class BaseFragment<VDB : ViewDataBinding>(
             container,
             false
         ).apply{
-            lifecycleOwner = this@BaseFragment
+            lifecycleOwner = this@BaseFragment.viewLifecycleOwner
         }
         return binding.root
     }
