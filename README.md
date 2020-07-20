@@ -30,4 +30,4 @@
 * Glide
 
 ### Initial screen
-![device-2020-07-21-032944](https://user-images.githubusercontent.com/7857824/87973083-f3dde480-cb02-11ea-9d45-244a76418e93.gif)
+![device-2020-07-21-034207](https://user-images.githubusercontent.com/7857824/87974061-70bd8e00-cb04-11ea-9037-cf774c6b8ad5.gif)
