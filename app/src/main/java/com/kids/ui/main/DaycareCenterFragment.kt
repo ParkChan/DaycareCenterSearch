@@ -11,14 +11,15 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.lifecycleScope
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.DividerItemDecoration
 import com.kids.BR
 import com.kids.R
 import com.kids.common.base.BaseFragment
-import com.kids.common.base.BaseListAdapter
-import com.kids.common.base.BaseViewModel
+import com.kids.common.base.adapter.BasePagingDataAdapter
+import com.kids.common.base.component.BaseViewInitComponent
 import com.kids.common.data.ViewHolderIdData
 import com.kids.constants.areaData
 import com.kids.constants.getSggCode
@@ -37,14 +38,16 @@ import kotlin.collections.set
 @AndroidEntryPoint
 class DaycareCenterFragment : BaseFragment<FragmentDaycareCenterBinding>(
     R.layout.fragment_daycare_center
-) {
+), BaseViewInitComponent {
 
     private val daycareCenterViewModel by viewModels<DaycareCenterViewModel>()
-    lateinit var adapter: BaseListAdapter<DaycareCenterModel>
+    lateinit var adapterPaging: BasePagingDataAdapter<DaycareCenterModel>
     private var searchJob: Job? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        bindViewModel()
+        setupObserve()
         initAdapter()
         initListener()
     }
@@ -54,7 +57,7 @@ class DaycareCenterFragment : BaseFragment<FragmentDaycareCenterBinding>(
     }
 
     override fun setupObserve() {
-        daycareCenterViewModel.selectedItem.observe(
+        daycareCenterViewModel.onClickedCall.observe(
             viewLifecycleOwner,
             Observer { daycareCenterModel ->
                 context?.let {
@@ -66,11 +69,6 @@ class DaycareCenterFragment : BaseFragment<FragmentDaycareCenterBinding>(
                         .subscribe { tedPermissionResult, throwable ->
                             tedPermissionResult?.run {
                                 if (tedPermissionResult.isGranted) {
-                                    Toast.makeText(
-                                        context,
-                                        "Permission Granted",
-                                        Toast.LENGTH_SHORT
-                                    ).show()
                                     val intent =
                                         Intent(
                                             Intent.ACTION_CALL, Uri.parse(
@@ -99,20 +97,20 @@ class DaycareCenterFragment : BaseFragment<FragmentDaycareCenterBinding>(
     }
 
     private fun initAdapter() {
-        val adapterViewModels = ArrayMap<Int, BaseViewModel>().apply {
+        val adapterViewModels = ArrayMap<Int, ViewModel>().apply {
             this[BR.daycareCenterViewModel] = daycareCenterViewModel
         }
 
         val viewHolderIdData =
             ViewHolderIdData(R.layout.item_daycare_center, BR.daycareCenterModel, BR.itemPosition)
 
-        adapter = BaseListAdapter(
+        adapterPaging = BasePagingDataAdapter(
             viewHolderIdData = viewHolderIdData,
             viewModels = adapterViewModels,
             diffCallback = DaycareCenterDiffer()
         )
 
-        adapter.addLoadStateListener { loadState ->
+        adapterPaging.addLoadStateListener { loadState ->
             /*
              * loadState.refresh - represents the load state for loading the PagingData for the first time.
              * loadState.prepend - represents the load state for loading data at the start of the list.
@@ -136,11 +134,11 @@ class DaycareCenterFragment : BaseFragment<FragmentDaycareCenterBinding>(
                 }
             }
         }
-        binding.rvProduct.adapter = adapter
+        binding.rvList.adapter = adapterPaging
 
         //add dividers
         val decoration = DividerItemDecoration(context, DividerItemDecoration.VERTICAL)
-        binding.rvProduct.addItemDecoration(decoration)
+        binding.rvList.addItemDecoration(decoration)
 
         binding.spinnerSido.adapter =
             context?.let {
@@ -209,7 +207,7 @@ class DaycareCenterFragment : BaseFragment<FragmentDaycareCenterBinding>(
         searchJob?.cancel()
         searchJob = lifecycleScope.launch {
             daycareCenterViewModel.getCenterListStream(sidoCode, sggCode).collect {
-                adapter.submitData(it)
+                adapterPaging.submitData(it)
             }
         }
     }

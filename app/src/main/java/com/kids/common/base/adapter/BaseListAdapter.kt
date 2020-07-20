@@ -1,16 +1,17 @@
-package com.kids.common.base
+package com.kids.common.base.adapter
 
 import android.util.ArrayMap
 import android.view.ViewGroup
-import androidx.paging.PagingDataAdapter
+import androidx.lifecycle.ViewModel
 import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import com.kids.common.data.ViewHolderIdData
 
-class BaseListAdapter<ITEM : Any>(
+open class BaseListAdapter<ITEM : Any>(
     private val viewHolderIdData: ViewHolderIdData,
-    private val viewModels: ArrayMap<Int, BaseViewModel>? = null,
+    private val viewModels: ArrayMap<Int, ViewModel>? = null,
     diffCallback: DiffUtil.ItemCallback<ITEM>
-) : PagingDataAdapter<ITEM, BaseViewHolder>(diffCallback) {
+) : ListAdapter<ITEM, BaseViewHolder>(diffCallback) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder =
         BaseViewHolder(

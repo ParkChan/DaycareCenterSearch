@@ -5,7 +5,14 @@
     <string name="oper_time_formmat">운영시간 : %s</string>
     <string name="phone_nember_fommat">전화번호 : %s</string>
     <string name="call_phone">전화하기</string>
+    <string name="add">추가</string>
+    <string name="remove">삭제</string>
 
     <string name="dialog_title_common_permission">알림</string>
     <string name="dialog_message_request_call_permission">전화하기 기능을 사용하려면 해당 접근권한을 허용해주세요.</string>
+
+
+    <string name="fragment_bookmark_no_list_data">즐겨찾기 항목을 추가해주세요.</string>
+
+    <string name="toast_message_add_bookmark">%s (이)가 추가되었습니다.</string>
 </resources>

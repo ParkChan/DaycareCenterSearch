@@ -1,16 +1,17 @@
-package com.kids.common.base
+package com.kids.common.base.adapter
 
 import android.util.ArrayMap
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModel
 import androidx.recyclerview.widget.RecyclerView
 import com.kids.common.data.ViewHolderIdData
 
-open class BaseAdapter<ITEM : Any>(
+open class BaseRecyclerAdapter<ITEM : Any>(
     private val viewHolderIdData: ViewHolderIdData,
-    private val viewModels: ArrayMap<Int, BaseViewModel>? = null
+    private val viewModels: ArrayMap<Int, ViewModel>? = null
 ) : RecyclerView.Adapter<BaseViewHolder>() {
 
-    private val itemList = mutableListOf<ITEM>()
+    protected val itemList = mutableListOf<ITEM>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder =
         BaseViewHolder(
@@ -23,14 +24,5 @@ open class BaseAdapter<ITEM : Any>(
 
     override fun onBindViewHolder(holder: BaseViewHolder, position: Int) {
         holder.bindViewHolder(itemList[position], position)
-    }
-
-    fun replaceItems(items: List<ITEM>?) {
-        if (items == null) return
-
-        itemList.run {
-            clear()
-            addAll(items)
-        }
     }
 }
