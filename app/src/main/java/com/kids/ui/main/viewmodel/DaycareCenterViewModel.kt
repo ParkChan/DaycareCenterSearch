@@ -14,6 +14,7 @@ import com.kids.ui.bookmark.repository.BookmarkRepository
 import com.kids.ui.main.domain.DaycareCenterRepository
 import com.kids.ui.main.model.DaycareCenterModel
 import com.kids.ui.main.model.mapToBookmarkModel
+import kotlinx.coroutines.cancel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
 
@@ -24,6 +25,8 @@ class DaycareCenterViewModel @ViewModelInject constructor(
 
     private val _onClickedCall = MutableLiveData<DaycareCenterModel>()
     val onClickedCall: LiveData<DaycareCenterModel> get() = _onClickedCall
+
+    private var toast: Toast? = null
 
     fun getCenterListStream(
         sidoCode: String,
@@ -45,13 +48,17 @@ class DaycareCenterViewModel @ViewModelInject constructor(
                 context,
                 item.mapToBookmarkModel()
             )
-            Toast.makeText(
+            toast?.let {
+                cancel()
+            }
+            toast = Toast.makeText(
                 context,
                 context.getString(
                     R.string.toast_message_add_bookmark,
                     item.kindername
                 ), Toast.LENGTH_SHORT
-            ).show()
+            )
+            toast?.show()
         }
     }
 }
