@@ -1,6 +1,6 @@
 package com.kids.common.base.component
 
-interface BaseViewInitComponent {
+interface ViewModelComponent {
     fun bindViewModel()
     fun setupObserve()
 }

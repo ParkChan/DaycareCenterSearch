@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import com.kids.BR
 import com.kids.R
 import com.kids.common.base.BaseFragment
-import com.kids.common.base.component.BaseViewInitComponent
+import com.kids.common.base.component.ViewModelComponent
 import com.kids.common.data.ViewHolderIdData
 import com.kids.databinding.FragmentBookmarkBinding
 import com.kids.ui.bookmark.adapter.BookmarkAdapter
@@ -27,7 +27,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class BookmarkFragment : BaseFragment<FragmentBookmarkBinding>(
     R.layout.fragment_bookmark
-) , BaseViewInitComponent {
+) , ViewModelComponent {
 
     private val bookmarkViewModel by viewModels<BookmarkViewModel>()
 

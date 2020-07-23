@@ -19,7 +19,7 @@ import com.kids.BR
 import com.kids.R
 import com.kids.common.base.BaseFragment
 import com.kids.common.base.adapter.BasePagingDataAdapter
-import com.kids.common.base.component.BaseViewInitComponent
+import com.kids.common.base.component.ViewModelComponent
 import com.kids.common.data.ViewHolderIdData
 import com.kids.constants.areaData
 import com.kids.constants.getSggCode
@@ -38,7 +38,7 @@ import kotlin.collections.set
 @AndroidEntryPoint
 class DaycareCenterFragment : BaseFragment<FragmentDaycareCenterBinding>(
     R.layout.fragment_daycare_center
-), BaseViewInitComponent {
+), ViewModelComponent {
 
     private val daycareCenterViewModel by viewModels<DaycareCenterViewModel>()
     lateinit var adapterPaging: BasePagingDataAdapter<DaycareCenterModel>
