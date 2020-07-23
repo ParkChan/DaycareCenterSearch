@@ -27,7 +27,6 @@
 ### Etc
 
 * MockInterceptor
-* Glide
 
 ### Initial screen
 ![device-2020-07-21-034207](https://user-images.githubusercontent.com/7857824/87974061-70bd8e00-cb04-11ea-9037-cf774c6b8ad5.gif)
