@@ -1,4 +1,4 @@
-package com.kids.ui.bookmark.db
+package com.kids.db
 
 import android.content.Context
 import com.kids.ui.bookmark.model.BookmarkModel

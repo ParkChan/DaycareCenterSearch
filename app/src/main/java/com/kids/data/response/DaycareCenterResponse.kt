@@ -1,4 +1,4 @@
-package com.kids.ui.main.domain.entity
+package com.kids.data.response
 
 import com.kids.ui.main.model.DaycareCenterModel
 import com.squareup.moshi.Json

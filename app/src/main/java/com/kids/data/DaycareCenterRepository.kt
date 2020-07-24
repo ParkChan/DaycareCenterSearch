@@ -1,4 +1,4 @@
-package com.kids.ui.main.domain
+package com.kids.data
 
 import androidx.paging.Pager
 import androidx.paging.PagingConfig

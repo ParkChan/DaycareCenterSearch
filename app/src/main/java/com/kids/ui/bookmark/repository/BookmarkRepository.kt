@@ -1,8 +1,8 @@
 package com.kids.ui.bookmark.repository
 
 import android.content.Context
-import com.kids.ui.bookmark.db.BookmarkDataSource
-import com.kids.ui.bookmark.db.DataBaseResult
+import com.kids.db.BookmarkDataSource
+import com.kids.db.DataBaseResult
 import com.kids.ui.bookmark.model.BookmarkModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext

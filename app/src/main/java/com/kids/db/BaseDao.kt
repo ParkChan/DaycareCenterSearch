@@ -1,4 +1,4 @@
-package com.kids.ui.bookmark.db
+package com.kids.db
 
 import androidx.room.Delete
 import androidx.room.Insert

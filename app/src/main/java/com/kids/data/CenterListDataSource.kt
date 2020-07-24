@@ -1,9 +1,9 @@
-package com.kids.ui.main.domain
+package com.kids.data
 
 import androidx.paging.PagingSource
 import com.kids.constants.DayCareConstants
 import com.kids.network.ChildSchoolApi
-import com.kids.ui.main.domain.entity.mapToModel
+import com.kids.data.response.mapToModel
 import com.kids.ui.main.model.DaycareCenterModel
 import retrofit2.HttpException
 import java.io.IOException

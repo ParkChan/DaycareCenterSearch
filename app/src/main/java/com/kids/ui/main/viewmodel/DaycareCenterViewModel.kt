@@ -11,7 +11,7 @@ import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import com.kids.R
 import com.kids.ui.bookmark.repository.BookmarkRepository
-import com.kids.ui.main.domain.DaycareCenterRepository
+import com.kids.data.DaycareCenterRepository
 import com.kids.ui.main.model.DaycareCenterModel
 import com.kids.ui.main.model.mapToBookmarkModel
 import kotlinx.coroutines.cancel

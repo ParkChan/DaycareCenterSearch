@@ -1,6 +1,6 @@
 package com.kids.network
 
-import com.kids.ui.main.domain.entity.DaycareCenterListResponse
+import com.kids.data.response.DaycareCenterListResponse
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query

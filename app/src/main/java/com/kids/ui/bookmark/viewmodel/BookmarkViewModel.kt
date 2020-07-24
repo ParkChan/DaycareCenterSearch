@@ -6,7 +6,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.kids.ui.bookmark.db.DataBaseResult
+import com.kids.db.DataBaseResult
 import com.kids.ui.bookmark.model.BookmarkModel
 import com.kids.ui.bookmark.repository.BookmarkRepository
 import kotlinx.coroutines.async
