@@ -5,8 +5,9 @@ import androidx.paging.PagingConfig
 import com.kids.ui.main.model.DaycareCenterModel
 import javax.inject.Inject
 
-class DaycareCenterRepository @Inject constructor(private val centerListDataSource: CenterListDataSource) {
-
+class DaycareCenterRepository @Inject constructor(
+    private val centerListDataSource: CenterListDataSource
+) {
     fun getCenterList(
         sidoCode: String,
         sggCode: String

@@ -36,7 +36,7 @@ class DaycareCenterViewModel @ViewModelInject constructor(
 
     fun onClickCall(item: DaycareCenterModel?) {
         item?.let {
-            _onClickedCall.value = item
+            _onClickedCall.value = it
         }
     }
 

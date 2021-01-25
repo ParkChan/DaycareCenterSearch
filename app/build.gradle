@@ -45,38 +45,44 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation JetBrain.JDK
 
-    implementation AndroidDxDependencies.APPCOMPAT
+    implementation AndroidDxConfig.APPCOMPAT
 
-    implementation AndroidDxDependencies.CORE_KTX
-    implementation AndroidDxDependencies.LIFECYCLE_VIEW_MODEL
-    implementation AndroidDxDependencies.LIFECYCLE_RUNTIME
-    implementation AndroidDxDependencies.LIFECYCLE_LIVEDATA
-    implementation AndroidDxDependencies.LIFECYCLE_EXT
+    implementation AndroidDxConfig.CORE_KTX
+    implementation AndroidDxConfig.LIFECYCLE_VIEW_MODEL
+    implementation AndroidDxConfig.LIFECYCLE_RUNTIME
+    implementation AndroidDxConfig.LIFECYCLE_LIVEDATA
+    implementation AndroidDxConfig.LIFECYCLE_EXT
 
-    implementation AndroidDxDependencies.CONSTRAINT_LAYOUT
+    implementation AndroidDxConfig.CONSTRAINT_LAYOUT
 
     implementation Google.MATERIAL
 
-    testImplementation TestDependencies.JUNIT
-    androidTestImplementation TestDependencies.EXT_JUNIT
-    androidTestImplementation TestDependencies.ESPRESSO
+    testImplementation TestConfig.JUNIT
+    androidTestImplementation TestConfig.EXT_JUNIT
+    androidTestImplementation TestConfig.ESPRESSO
+    testImplementation TestConfig.CORE_TESTING
+    testImplementation TestConfig.JUNIT_JUPITER_API
+    testRuntimeOnly TestConfig.JUNIT_JUPITER_ENGINE
+    testImplementation TestConfig.JUNIT_JUPITER_PARAMS
+    testImplementation TestConfig.MOCKK
 
-    implementation AndroidDxDependencies.ACTIVITY_KTX
-    implementation AndroidDxDependencies.FRAGMENT_KTX
 
-    implementation AndroidDxDependencies.NAVIGATION_FRAGMENT
-    implementation AndroidDxDependencies.NAVIGATION_UI
-    implementation AndroidDxDependencies.NAVIGATION_FRAGMENT_KTX
-    implementation AndroidDxDependencies.NAVIGATION_UI_KTX
+    implementation AndroidDxConfig.ACTIVITY_KTX
+    implementation AndroidDxConfig.FRAGMENT_KTX
 
-    implementation AndroidDxDependencies.ROOM_RUNTIME
-    testImplementation AndroidDxDependencies.ROOM_TESTING
-    kapt AndroidDxDependencies.ROOM_COMPILER
-    annotationProcessor AndroidDxDependencies.ROOM_COMPILER
-    implementation AndroidDxDependencies.ROOM_KTX
-    implementation AndroidDxDependencies.ROOM_GUAVA
+    implementation AndroidDxConfig.NAVIGATION_FRAGMENT
+    implementation AndroidDxConfig.NAVIGATION_UI
+    implementation AndroidDxConfig.NAVIGATION_FRAGMENT_KTX
+    implementation AndroidDxConfig.NAVIGATION_UI_KTX
 
-    implementation AndroidDxDependencies.PAGING
+    implementation AndroidDxConfig.ROOM_RUNTIME
+    testImplementation AndroidDxConfig.ROOM_TESTING
+    kapt AndroidDxConfig.ROOM_COMPILER
+    annotationProcessor AndroidDxConfig.ROOM_COMPILER
+    implementation AndroidDxConfig.ROOM_KTX
+    implementation AndroidDxConfig.ROOM_GUAVA
+
+    implementation AndroidDxConfig.PAGING
 
     implementation Dependencies.LOGGER
 

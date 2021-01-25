@@ -32,7 +32,9 @@ class BookmarkViewModel @ViewModelInject constructor(
 
         when (val dbResult = bookmarkResult.await()) {
             is DataBaseResult.Success -> {
-                _bookmarkListData.postValue(dbResult.data)
+                dbResult.data.run {
+                    _bookmarkListData.postValue(this)
+                }
             }
             is DataBaseResult.Failure -> {
                 _errorMessage.postValue(dbResult.exception.message ?: "")
@@ -47,7 +49,7 @@ class BookmarkViewModel @ViewModelInject constructor(
 
     fun onClickCall(item: BookmarkModel?) {
         item?.let {
-            _onClickedCall.value = item
+            _onClickedCall.value = it
         }
     }
 

@@ -2,7 +2,7 @@ object Kotlin {
     const val VERSION = "1.3.72"
 }
 
-object RootConfig {
+object ProjectConfig {
     const val GRADLE = "com.android.tools.build:gradle:4.0.0"
     const val KOTLIN_GRADLE_PLUGIN = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Kotlin.VERSION}"
     const val DAGGER_HILT_PLUGIN = "com.google.dagger:hilt-android-gradle-plugin:2.28-alpha"
@@ -25,13 +25,20 @@ object Google {
     const val MATERIAL = "com.google.android.material:material:1.1.0"
 }
 
-object TestDependencies {
-    const val JUNIT = "junit:junit:4.12"
+object TestConfig {
+    private const val JUNIT = "junit:junit:4.12"
+    private const val JUNIT_VERSION = "5.7.0"
+
     const val EXT_JUNIT = "androidx.test.ext:junit:1.1.1"
     const val ESPRESSO = "androidx.test.espresso:espresso-core:3.2.0"
+    const val CORE_TESTING = "androidx.arch.core:core-testing:2.1.0"
+    const val JUNIT_JUPITER_API = "org.junit.jupiter:junit-jupiter-api:$JUNIT_VERSION"
+    const val JUNIT_JUPITER_ENGINE = "org.junit.jupiter:junit-jupiter-engine:$JUNIT_VERSION"
+    const val JUNIT_JUPITER_PARAMS = "org.junit.jupiter:junit-jupiter-params:$JUNIT_VERSION"
+    const val MOCKK = "io.mockk:mockk:1.10.2"
 }
 
-object AndroidDxDependencies {
+object AndroidDxConfig {
     private const val LIFECYCLE_VERSION = "2.2.0"
     private const val NAVIGATION_VERSION = "2.3.0"
     private const val ROOM_VERSION = "2.2.5"
