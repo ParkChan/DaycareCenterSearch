@@ -3,6 +3,7 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'dagger.hilt.android.plugin'
+apply plugin: 'de.mannodermaus.android-junit5'
 
 android {
     compileSdkVersion AndroidConfig.COMPILE_AND_TARGET_SDK
@@ -82,6 +83,9 @@ dependencies {
     implementation AndroidDxConfig.ROOM_KTX
     implementation AndroidDxConfig.ROOM_GUAVA
 
+    testImplementation TestConfig.ASSERT_CORE
+    androidTestImplementation TestConfig.ASSERT_CORE
+
     implementation AndroidDxConfig.PAGING
 
     implementation Dependencies.TIMBER
@@ -90,6 +94,8 @@ dependencies {
     kapt Dependencies.GLIDE_COMPILER
 
     implementation Dependencies.COROUTINES_CORE
+    implementation Dependencies.COROUTINES_ANDROID
+    testImplementation TestConfig.COROUTINES_TEST
 
     implementation Dependencies.HILT_ANDROID
     implementation Dependencies.HILT_LIFECYCLE_VM

@@ -1,11 +1,13 @@
 object Kotlin {
-    const val VERSION = "1.3.72"
+    const val VERSION = "1.4.31"
 }
 
 object ProjectConfig {
     const val GRADLE = "com.android.tools.build:gradle:4.0.0"
     const val KOTLIN_GRADLE_PLUGIN = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Kotlin.VERSION}"
     const val DAGGER_HILT_PLUGIN = "com.google.dagger:hilt-android-gradle-plugin:2.28-alpha"
+    const val JUNIT_5_PLUGIN = "de.mannodermaus.gradle.plugins:android-junit5:1.7.1.1"
+
 }
 
 object AndroidConfig {
@@ -27,7 +29,7 @@ object Google {
 
 object TestConfig {
     private const val JUNIT = "junit:junit:4.12"
-    private const val JUNIT_VERSION = "5.7.0"
+    private const val JUNIT_VERSION = "5.7.1"
 
     const val EXT_JUNIT = "androidx.test.ext:junit:1.1.1"
     const val ESPRESSO = "androidx.test.espresso:espresso-core:3.2.0"
@@ -35,7 +37,11 @@ object TestConfig {
     const val JUNIT_JUPITER_API = "org.junit.jupiter:junit-jupiter-api:$JUNIT_VERSION"
     const val JUNIT_JUPITER_ENGINE = "org.junit.jupiter:junit-jupiter-engine:$JUNIT_VERSION"
     const val JUNIT_JUPITER_PARAMS = "org.junit.jupiter:junit-jupiter-params:$JUNIT_VERSION"
-    const val MOCKK = "io.mockk:mockk:1.10.2"
+    const val ASSERT_CORE = "org.assertj:assertj-core:3.18.0"
+
+    const val MOCKK = "io.mockk:mockk:1.10.6"
+
+    const val COROUTINES_TEST = "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.5.1"
 }
 
 object AndroidDxConfig {
@@ -81,7 +87,7 @@ object AndroidDxConfig {
 object Dependencies {
 
     private const val GLIDE_VERSION = "4.11.0"
-    private const val COROUTINE_VERSION = "1.3.7"
+    private const val COROUTINE_VERSION = "1.5.1"
 
     private const val HILT_VER = "2.28-alpha"
     private const val HILT_JETPACK_VER = "1.0.0-alpha01"
@@ -95,6 +101,7 @@ object Dependencies {
 
     //Coroutine
     const val COROUTINES_CORE = "org.jetbrains.kotlinx:kotlinx-coroutines-core:$COROUTINE_VERSION"
+    const val COROUTINES_ANDROID = "org.jetbrains.kotlinx:kotlinx-coroutines-android:$COROUTINE_VERSION"
 
     //dagger-hilt
     const val HILT_ANDROID = "com.google.dagger:hilt-android:$HILT_VER"
