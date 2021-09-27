@@ -2,7 +2,6 @@ package com.kids.ui.main.viewmodel
 
 import android.content.Context
 import android.widget.Toast
-import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -14,11 +13,14 @@ import com.kids.data.remote.DaycareCenterRepository
 import com.kids.ui.bookmark.repository.BookmarkRepository
 import com.kids.ui.main.model.DaycareCenterModel
 import com.kids.ui.main.model.mapToBookmarkModel
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class DaycareCenterViewModel @ViewModelInject constructor(
+@HiltViewModel
+class DaycareCenterViewModel @Inject constructor(
     private val centerListRepository: DaycareCenterRepository,
     private val bookmarkRepository: BookmarkRepository
 ) : ViewModel() {

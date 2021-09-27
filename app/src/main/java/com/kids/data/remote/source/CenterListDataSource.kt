@@ -9,7 +9,7 @@ import java.io.IOException
 import javax.inject.Inject
 
 class CenterListDataSource @Inject constructor(
-    private val childSchoolApi: ChildSchoolApi
+    private val daycareService: DaycareService
 ) : PagingSource<Int, DaycareCenterModel>() {
 
     private val initialPageIndex: Int = 1
@@ -24,7 +24,7 @@ class CenterListDataSource @Inject constructor(
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, DaycareCenterModel> {
         val position = params.key ?: initialPageIndex
         return try {
-            val networkResult = childSchoolApi.getDaycareCenterListAsync(
+            val networkResult = daycareService.getDaycareCenterListAsync(
                 key = DayCareConstants.API_KEY,
                 currentPage = position,
                 pageCount = 30,

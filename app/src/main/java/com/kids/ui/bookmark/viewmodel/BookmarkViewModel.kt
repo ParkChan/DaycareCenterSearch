@@ -1,7 +1,6 @@
 package com.kids.ui.bookmark.viewmodel
 
 import android.content.Context
-import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -9,10 +8,13 @@ import androidx.lifecycle.viewModelScope
 import com.kids.data.local.DataBaseResult
 import com.kids.ui.bookmark.model.BookmarkModel
 import com.kids.ui.bookmark.repository.BookmarkRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class BookmarkViewModel @ViewModelInject constructor(
+@HiltViewModel
+class BookmarkViewModel @Inject constructor(
     private val bookmarkRepository: BookmarkRepository
 ) : ViewModel() {
 

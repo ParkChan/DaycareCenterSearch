@@ -46,7 +46,7 @@ object TestConfig {
 object AndroidDxConfig {
     private const val LIFECYCLE_VERSION = "2.2.0"
     private const val NAVIGATION_VERSION = "2.3.0"
-    private const val ROOM_VERSION = "2.2.5"
+    private const val ROOM_VERSION = "2.3.0"
     private const val PAGING_VERSION = "3.0.0-alpha01"
 
     const val APPCOMPAT = "androidx.appcompat:appcompat:1.1.0"
@@ -72,10 +72,8 @@ object AndroidDxConfig {
 
     //Room
     const val ROOM_RUNTIME = "androidx.room:room-runtime:$ROOM_VERSION"
-    const val ROOM_TESTING = "androidx.room:room-testing:$ROOM_VERSION"
     const val ROOM_COMPILER = "androidx.room:room-compiler:$ROOM_VERSION"
-    const val ROOM_KTX = "androidx.room:room-ktx:$ROOM_VERSION"
-    const val ROOM_GUAVA = "androidx.room:room-guava:$ROOM_VERSION"
+    const val ROOM_TESTING = "androidx.room:room-testing:$ROOM_VERSION"
 
     //Paging 3.0 core dependencies Injection
     const val PAGING = "androidx.paging:paging-runtime:$PAGING_VERSION"
@@ -105,7 +103,8 @@ object Dependencies {
     //dagger-hilt
     const val HILT_ANDROID = "com.google.dagger:hilt-android:$HILT_VER"
     const val HILT_ANDROID_COMPILER = "com.google.dagger:hilt-android-compiler:$HILT_VER"
-    const val HILT_COMPILER = "androidx.hilt:hilt-compiler:$HILT_VER"
+    const val HILT_TESTING = "com.google.dagger:hilt-android-testing:$HILT_VER"
+    const val HILT_COMPILER = "com.google.dagger:hilt-android-compiler:$HILT_VER"
 
     //TedPermmision
     const val TED_PERMISION = "gun0912.ted:tedpermission-rx2:2.2.3"

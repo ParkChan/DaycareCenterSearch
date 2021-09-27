@@ -6,7 +6,7 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 
-interface ChildSchoolApi {
+interface DaycareService {
 
     @GET("api/notice/basicInfo.do")
     suspend fun getDaycareCenterListAsync(

@@ -1,9 +1,11 @@
-apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-kapt'
-apply plugin: 'kotlin-android-extensions'
-apply plugin: 'dagger.hilt.android.plugin'
-apply plugin: 'de.mannodermaus.android-junit5'
+plugins{
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+    id 'de.mannodermaus.android-junit5'
+}
+
 
 android {
     compileSdkVersion AndroidConfig.COMPILE_AND_TARGET_SDK
@@ -64,6 +66,10 @@ dependencies {
     testImplementation TestConfig.JUNIT_JUPITER_API
     testRuntimeOnly TestConfig.JUNIT_JUPITER_ENGINE
     testImplementation TestConfig.JUNIT_JUPITER_PARAMS
+
+    testImplementation TestConfig.ASSERT_CORE
+    androidTestImplementation TestConfig.ASSERT_CORE
+
     testImplementation TestConfig.MOCKK
 
 
@@ -76,14 +82,8 @@ dependencies {
     implementation AndroidDxConfig.NAVIGATION_UI_KTX
 
     implementation AndroidDxConfig.ROOM_RUNTIME
-    testImplementation AndroidDxConfig.ROOM_TESTING
-    kapt AndroidDxConfig.ROOM_COMPILER
     annotationProcessor AndroidDxConfig.ROOM_COMPILER
-    implementation AndroidDxConfig.ROOM_KTX
-    implementation AndroidDxConfig.ROOM_GUAVA
-
-    testImplementation TestConfig.ASSERT_CORE
-    androidTestImplementation TestConfig.ASSERT_CORE
+    testImplementation AndroidDxConfig.ROOM_TESTING
 
     implementation AndroidDxConfig.PAGING
 
@@ -99,6 +99,15 @@ dependencies {
     implementation Dependencies.HILT_ANDROID
     kapt Dependencies.HILT_ANDROID_COMPILER
     kapt Dependencies.HILT_COMPILER
+
+    implementation Dependencies.HILT_ANDROID
+    kapt Dependencies.HILT_ANDROID_COMPILER
+    // For instrumentation tests
+    androidTestImplementation Dependencies.HILT_TESTING
+    kaptAndroidTest Dependencies.HILT_COMPILER
+    // For local unit tests
+    testImplementation Dependencies.HILT_TESTING
+    kaptTest Dependencies.HILT_COMPILER
 
     implementation Dependencies.TED_PERMISION
 
