@@ -1,4 +1,4 @@
-package com.kids.db
+package com.kids.data.local
 
 import android.content.Context
 import com.kids.ui.bookmark.model.BookmarkModel
@@ -16,7 +16,8 @@ class BookmarkDataSource @Inject constructor(){
         withContext(ioDispatcher) {
             return@withContext try {
                 DataBaseResult.Success(
-                    BookmarkDatabase.getInstance(context).bookmarkDao().selectAll())
+                    BookmarkDatabase.getInstance(context).bookmarkDao().selectAll()
+                )
             } catch (e: Exception) {
                 DataBaseResult.Failure(e)
             }

@@ -1,4 +1,4 @@
-package com.kids.db
+package com.kids.data.local
 
 import androidx.room.Delete
 import androidx.room.Insert

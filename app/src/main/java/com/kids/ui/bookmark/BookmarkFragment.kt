@@ -20,7 +20,6 @@ import com.kids.databinding.FragmentBookmarkBinding
 import com.kids.ui.bookmark.adapter.BookmarkAdapter
 import com.kids.ui.bookmark.adapter.BookmarkDiffer
 import com.kids.ui.bookmark.viewmodel.BookmarkViewModel
-import com.orhanobut.logger.Logger
 import com.tedpark.tedpermission.rx2.TedRx2Permission
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -47,7 +46,6 @@ class BookmarkFragment : BaseFragment<FragmentBookmarkBinding>(
         binding.bookmarkViewModel?.bookmarkListData?.observe(
             viewLifecycleOwner,
             Observer {
-                Logger.d("bookmarkViewModel observe listData $it")
                 if (it.isNotEmpty()) {
                     binding.rvList.visibility = View.VISIBLE
                     binding.tvEmptyList.visibility = View.GONE

@@ -1,4 +1,4 @@
-package com.kids.db
+package com.kids.data.local
 
 import androidx.room.Dao
 import androidx.room.Query

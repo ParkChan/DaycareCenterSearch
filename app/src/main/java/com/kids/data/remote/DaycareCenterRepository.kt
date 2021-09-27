@@ -1,7 +1,8 @@
-package com.kids.data
+package com.kids.data.remote
 
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
+import com.kids.data.remote.source.CenterListDataSource
 import com.kids.ui.main.model.DaycareCenterModel
 import javax.inject.Inject
 
@@ -14,7 +15,12 @@ class DaycareCenterRepository @Inject constructor(
     ): Pager<Int, DaycareCenterModel> {
         return Pager(
             config = PagingConfig(pageSize = 60),
-            pagingSourceFactory = { centerListDataSource.apply { setArea(sidoCode, sggCode) } })
+            pagingSourceFactory = {
+                centerListDataSource.apply {
+                    setArea(sidoCode, sggCode)
+                }
+            }
+        )
     }
 
 }

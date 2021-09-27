@@ -1,4 +1,4 @@
-package com.kids.db
+package com.kids.data.local
 
 import android.content.Context
 import androidx.room.Database
@@ -19,7 +19,7 @@ abstract class BookmarkDatabase : RoomDatabase() {
         @Volatile
         private var INSTANCE: BookmarkDatabase? = null
 
-        fun getInstance(context: Context): BookmarkDatabase  =
+        fun getInstance(context: Context): BookmarkDatabase =
             INSTANCE ?: synchronized(this) {
                 INSTANCE ?: buildDatabase(context).also { INSTANCE = it }
         }

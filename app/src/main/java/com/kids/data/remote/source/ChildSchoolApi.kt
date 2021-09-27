@@ -1,6 +1,6 @@
-package com.kids.network
+package com.kids.data.remote.source
 
-import com.kids.data.response.DaycareCenterListResponse
+import com.kids.data.remote.response.DaycareCenterListResponse
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query

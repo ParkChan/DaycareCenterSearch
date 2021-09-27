@@ -84,7 +84,7 @@ dependencies {
 
     implementation AndroidDxConfig.PAGING
 
-    implementation Dependencies.LOGGER
+    implementation Dependencies.TIMBER
 
     implementation Dependencies.GLIDE
     kapt Dependencies.GLIDE_COMPILER

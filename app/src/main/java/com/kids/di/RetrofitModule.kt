@@ -1,7 +1,7 @@
 package com.kids.di
 
 import com.kids.BuildConfig
-import com.kids.network.ChildSchoolApi
+import com.kids.data.remote.source.ChildSchoolApi
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
@@ -62,7 +62,7 @@ class RetrofitModule {
 
     @Provides
     @Singleton
-    fun provideGoodChoiceService(retrofit: Retrofit): ChildSchoolApi =
+    fun provideService(retrofit: Retrofit): ChildSchoolApi =
         retrofit.create(ChildSchoolApi::class.java)
 
     companion object {

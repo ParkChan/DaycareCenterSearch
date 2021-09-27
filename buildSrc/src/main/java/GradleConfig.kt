@@ -80,7 +80,6 @@ object AndroidDxConfig {
 
 object Dependencies {
 
-    private const val LOGGER_VERSION = "2.2.0"
     private const val GLIDE_VERSION = "4.11.0"
     private const val COROUTINE_VERSION = "1.3.7"
 
@@ -88,7 +87,7 @@ object Dependencies {
     private const val HILT_JETPACK_VER = "1.0.0-alpha01"
 
     //Logger
-    const val LOGGER = "com.orhanobut:logger:$LOGGER_VERSION"
+    const val TIMBER = "com.jakewharton.timber:timber:4.7.1"
 
     //Glide
     const val GLIDE = "com.github.bumptech.glide:glide:$GLIDE_VERSION"

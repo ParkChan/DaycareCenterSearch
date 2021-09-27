@@ -27,7 +27,6 @@ import com.kids.constants.getSidoCode
 import com.kids.databinding.FragmentDaycareCenterBinding
 import com.kids.ui.main.model.DaycareCenterModel
 import com.kids.ui.main.viewmodel.DaycareCenterViewModel
-import com.orhanobut.logger.Logger
 import com.tedpark.tedpermission.rx2.TedRx2Permission
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Job
@@ -179,9 +178,6 @@ class DaycareCenterFragment : BaseFragment<FragmentDaycareCenterBinding>(
 
                 val sidoCode = getSidoCode(sidoSelectedStr)
                 val sggCode = getSggCode(sidoSelectedStr, sggSelectedStr)
-
-                Logger.d("test >>> 시도  $sidoSelectedStr 시군구 $sggSelectedStr")
-                Logger.d("test >>> 시도 코드 $sidoCode 시군구 코드 $sggCode")
 
                 search(sidoCode, sggCode)
             }
