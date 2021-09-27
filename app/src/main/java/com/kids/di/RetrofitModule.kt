@@ -1,7 +1,7 @@
 package com.kids.di
 
 import com.kids.BuildConfig
-import com.kids.data.remote.source.DaycareService
+import com.kids.data.remote.source.DayCareCenterService
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
@@ -62,8 +62,8 @@ class RetrofitModule {
 
     @Provides
     @Singleton
-    fun provideService(retrofit: Retrofit): DaycareService =
-        retrofit.create(DaycareService::class.java)
+    fun provideService(retrofit: Retrofit): DayCareCenterService =
+        retrofit.create(DayCareCenterService::class.java)
 
     companion object {
         private const val BASE_URL = "https://e-childschoolinfo.moe.go.kr/"

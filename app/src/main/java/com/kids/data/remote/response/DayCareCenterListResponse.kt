@@ -5,28 +5,28 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
-data class DaycareCenterListResponse(
+data class DayCareCenterListResponse(
 
-    @field:Json(name = "pageCnt")
+    @Json(name = "pageCnt")
     val pageCnt: Int? = null,
 
-    @field:Json(name = "currentPage")
+    @Json(name = "currentPage")
     val currentPage: Int? = null,
 
-    @field:Json(name = "sidoList")
+    @Json(name = "sidoList")
     val sidoList: String? = null,
 
-    @field:Json(name = "sggList")
+    @Json(name = "sggList")
     val sggList: String? = null,
 
-    @field:Json(name = "status")
+    @Json(name = "status")
     val status: String? = null,
 
-    @field:Json(name = "kinderInfo")
+    @Json(name = "kinderInfo")
     val daycareCenterList: List<DaycareCenterResponse>? = null
 )
 
-fun DaycareCenterListResponse.mapToModel() =
+fun DayCareCenterListResponse.mapToModel() =
     DaycareCenterListModel(
         pageCnt = pageCnt ?: 0,
         currentPage = currentPage ?: 0,

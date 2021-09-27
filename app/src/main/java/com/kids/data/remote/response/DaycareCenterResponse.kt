@@ -7,7 +7,7 @@ import com.squareup.moshi.JsonClass
 @JsonClass(generateAdapter = true)
 data class DaycareCenterResponse(
 
-    @field:Json(name = "key")    //유치원 이름
+    @field:Json(name = "key")
     val key: String? = null,
 
     @field:Json(name = "kindername")    //유치원 이름
