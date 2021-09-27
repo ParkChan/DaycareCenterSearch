@@ -41,7 +41,6 @@ object TestConfig {
 
     const val MOCKK = "io.mockk:mockk:1.10.6"
 
-    const val COROUTINES_TEST = "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.5.1"
 }
 
 object AndroidDxConfig {
@@ -89,8 +88,7 @@ object Dependencies {
     private const val GLIDE_VERSION = "4.11.0"
     private const val COROUTINE_VERSION = "1.5.1"
 
-    private const val HILT_VER = "2.28-alpha"
-    private const val HILT_JETPACK_VER = "1.0.0-alpha01"
+    private const val HILT_VER = "2.33-beta"
 
     //Logger
     const val TIMBER = "com.jakewharton.timber:timber:4.7.1"
@@ -102,13 +100,12 @@ object Dependencies {
     //Coroutine
     const val COROUTINES_CORE = "org.jetbrains.kotlinx:kotlinx-coroutines-core:$COROUTINE_VERSION"
     const val COROUTINES_ANDROID = "org.jetbrains.kotlinx:kotlinx-coroutines-android:$COROUTINE_VERSION"
+    const val COROUTINES_TEST = "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.5.1"
 
     //dagger-hilt
     const val HILT_ANDROID = "com.google.dagger:hilt-android:$HILT_VER"
     const val HILT_ANDROID_COMPILER = "com.google.dagger:hilt-android-compiler:$HILT_VER"
-
-    const val HILT_LIFECYCLE_VM = "androidx.hilt:hilt-lifecycle-viewmodel:$HILT_JETPACK_VER"
-    const val HILT_COMPILER = "androidx.hilt:hilt-compiler:$HILT_JETPACK_VER"
+    const val HILT_COMPILER = "androidx.hilt:hilt-compiler:$HILT_VER"
 
     //TedPermmision
     const val TED_PERMISION = "gun0912.ted:tedpermission-rx2:2.2.3"
@@ -120,6 +117,7 @@ object NetworkDependencies {
     private const val MOSHI_VERSION = "1.9.2"
 
     const val RETROFIT = "com.squareup.retrofit2:retrofit:$RETROFIT_VERSION"
+    const val RETROFIT_MOCK = "com.squareup.retrofit2:retrofit-mock:$RETROFIT_VERSION"
     const val GSON = "com.squareup.retrofit2:converter-gson:$RETROFIT_VERSION"
     const val CONVERTER_MOSHI = "com.squareup.retrofit2:converter-moshi:$RETROFIT_VERSION"
     const val LOGGING = "com.squareup.okhttp3:logging-interceptor:4.7.2"

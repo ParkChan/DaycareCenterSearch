@@ -42,7 +42,6 @@ android {
 
 dependencies {
 
-
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation JetBrain.JDK
 
@@ -95,10 +94,9 @@ dependencies {
 
     implementation Dependencies.COROUTINES_CORE
     implementation Dependencies.COROUTINES_ANDROID
-    testImplementation TestConfig.COROUTINES_TEST
+    testImplementation Dependencies.COROUTINES_TEST
 
     implementation Dependencies.HILT_ANDROID
-    implementation Dependencies.HILT_LIFECYCLE_VM
     kapt Dependencies.HILT_ANDROID_COMPILER
     kapt Dependencies.HILT_COMPILER
 
